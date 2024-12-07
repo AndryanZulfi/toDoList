@@ -6,7 +6,7 @@ const path = require('path');
 require('./utils/database')
 const notes = require('./model/note')
 app.use(express.static('../frontend/public'))
-app.set('views', path.join(__dirname, '../frontend/views'));
+app.set('views', path.join(__dirname, '../frontend/src/views'));
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json());
