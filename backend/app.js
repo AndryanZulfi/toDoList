@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const PORT = process.env.PORT || 3000;
 const bodyParser = require('body-parser')
 const path = require('path');
 require('./utils/database')
@@ -79,6 +79,6 @@ app.use('/', (req,res)=>{
 
 
 
-app.listen(port, ()=>{
+app.listen(PORT, ()=>{
     console.log(`Server berjalan pada port ${port}`)
 })
