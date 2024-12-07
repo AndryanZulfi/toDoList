@@ -1,2 +1,5 @@
 [phases.build]
 workingDirectory = "backend"
+
+[phases.start]
+workingDirectory = "backend"
