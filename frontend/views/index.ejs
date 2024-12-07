@@ -107,7 +107,7 @@
 
                     async submitData(){
                         try{
-                            const response = await axios.post('./add', {text: this.textNewNote},{
+                            const response = await axios.post('https://todolist-production-e5fd.up.railway.app/add', {text: this.textNewNote},{
                                 headers: {
                                     'Content-Type': 'application/json',
                                 },

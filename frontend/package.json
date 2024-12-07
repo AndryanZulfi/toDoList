@@ -2,13 +2,20 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./views/index.ejs",
   "scripts": {
-    "build": "npm run dist",
+    "build": "vue-cli-service build",
     "start": "serve -s dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andryan Zulfi",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@vue/cli-service": "^5.0.8",
+    "@vue/compiler-sfc": "^3.5.13",
+    "vue-template-compiler": "^2.7.16"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  }
 }
-   
