@@ -1,5 +1,10 @@
+[phases.setup]
+working_directory = "backend"
+
 [phases.build]
-workingDirectory = "backend"
+working_directory = "backend"
+command = "npm install"
 
 [phases.start]
-workingDirectory = "backend"
+working_directory = "backend"
+command = "npm start"
