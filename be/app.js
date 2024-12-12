@@ -18,9 +18,9 @@ app.use(express.json());
 app.get('/', async (req, res) => {
     try {
         const listNotes = await notes.read();
-        res.status(200).json({success: true, data: listNotes})
+        res.status(200).json({data: listNotes})
     } catch (err) {
-        res.status(500).json({ success: false, error: err.message });
+        res.status(500).json({error: err.message });
     }
 });
 
@@ -28,7 +28,7 @@ app.get('/', async (req, res) => {
 app.post('/add', async (req, res) => {
     try {
         const newData = await notes.add(req.body.text);
-        res.status(201).json({ success: true, data: newData });
+        res.status(201).json({ data: newData });
     } catch (e) {
         res.status(500).json({ success: false, error: e.message });
     }
@@ -40,9 +40,9 @@ app.put('/update/:id', async (req, res) => {
         const id = req.params.id;
         const { text } = req.body;
         await notes.update(id, text);
-        res.status(200).json({ success: true, id, text });
+        res.status(200).json({ id, text });
     } catch (e) {
-        res.status(500).json({ success: false, error: e.message });
+        res.status(500).json({ error: e.message });
     }
 });
 
@@ -51,9 +51,9 @@ app.patch('/ceklis', async (req, res) => {
     try {
         const { id, condition } = req.body;
         await notes.checked(id, condition);
-        res.status(200).json({ success: true, id, condition: !condition });
+        res.status(200).json({ id, condition: !condition });
     } catch (e) {
-        res.status(500).json({ success: false, error: e.message });
+        res.status(500).json({error: e.message });
     }
 });
 
@@ -62,15 +62,15 @@ app.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         await notes.remove(id);
-        res.json({ success: true });
+        res.json({success: true})
     } catch (e) {
-        res.status(500).json({ success: false, error: e.message });
+        res.status(500).json({success: false, error: e.message });
     }
 });
 
 // 404 handler
 app.use((req, res) => {
-    res.status(404).json({success: false, error: 'Not Found' });
+    res.status(404).json({error: 'Not Found' });
 });
 
 app.listen(port, () => {

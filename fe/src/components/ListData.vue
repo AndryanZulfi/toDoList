@@ -104,7 +104,8 @@ import axios from 'axios'
             async deleteItem(i){
                 const id = this.listNotes[i]._id
                     try {
-                        const response = await fetch(`http://localhost:3000/${id}`, { method: 'DELETE' });
+                        const response = await fetch(`http://localhost:3000/${id}`, {method: 'DELETE'});
+                        console.log(response)
                         if (response.ok) {
                             this.listNotes.splice(i, 1);
                         } else {
