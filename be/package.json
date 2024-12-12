@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "start:backend": "node app.js" ,
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andryan Zulfi",
@@ -15,5 +17,9 @@
     "mongoose": "^8.8.4",
     "nodemon": "^3.1.7",
     "path": "^0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndryanZulfi/toDoList"
   }
 }

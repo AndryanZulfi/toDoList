@@ -1,6 +1,0 @@
-build = "npm start"
-[[builds]]
-  name = "backend"
-  type = "command"
-  command = "npm start"
-  startPath = "be"
