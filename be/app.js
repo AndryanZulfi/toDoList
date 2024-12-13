@@ -74,6 +74,5 @@ app.use((req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server bejalan di port ${port}`)
+    console.log(`Server berjalan di port ${port}`)
 })
-
