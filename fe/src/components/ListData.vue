@@ -56,6 +56,7 @@
 </template>
 
 <script>
+const API_URL = import.meta.env.VITE_API_URL;
 import 'ionicons/dist/ionicons/ionicons.esm.js';
 import axios from 'axios'
     export default {
@@ -74,7 +75,7 @@ import axios from 'axios'
         methods: {
             async fetchNotes(){
                 try{
-                    const response = await axios.get(`http://localhost:3000`)
+                    const response = await axios.get(`${API_URL}`)
                     if(response.status == 200){
                         this.listNotes = response.data.data.reverse()
                         this.conditionUpdate = response.data.data.map(() => false)
@@ -85,7 +86,7 @@ import axios from 'axios'
             },
             async submitData() {
                     try {
-                        const response = await axios.post('http://localhost:3000/add', { text: this.textNewNote }, {
+                        const response = await axios.post(`${API_URL}/add`, { text: this.textNewNote }, {
                             headers: {
                                 'Content-Type': 'application/json',
                             },
@@ -104,7 +105,7 @@ import axios from 'axios'
             async deleteItem(i){
                 const id = this.listNotes[i]._id
                     try {
-                        const response = await fetch(`http://localhost:3000/${id}`, {method: 'DELETE'});
+                        const response = await fetch(`${API_URL}/${id}`, {method: 'DELETE'});
                         console.log(response)
                         if (response.ok) {
                             this.listNotes.splice(i, 1);
@@ -118,7 +119,7 @@ import axios from 'axios'
             async updateItem(index, newData) {
                     const id = this.listNotes[index]._id
                     try {
-                        const response = await axios.put(`http://localhost:3000/update/${id}`, { text: this.newText }, {
+                        const response = await axios.put(`${API_URL}/update/${id}`, { text: this.newText }, {
                             headers: {
                                 'Content-Type': 'application/json',
                             },
@@ -156,7 +157,7 @@ import axios from 'axios'
                 },
                 async isChecked(i) {
                     try {
-                        const response = await axios.patch('http://localhost:3000/ceklis', { id: this.listNotes[i]._id, condition: this.listNotes[i].isChecked }, {
+                        const response = await axios.patch(`${API_URL}/ceklis`, { id: this.listNotes[i]._id, condition: this.listNotes[i].isChecked }, {
                             headers: {
                                 'Content-Type': 'application/json',
                             },
