@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const path = require('path');
 const cors = require('cors');
+require('dotenv').config();
 
 const bodyParser = require('body-parser');
 require('./utils/database');
 const notes = require('./model/note');
 const { stringify } = require('querystring');
 
-app.use(cors());
+app.use(cors({ origin: '*' }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
