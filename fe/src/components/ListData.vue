@@ -56,7 +56,7 @@
 </template>
 
 <script>
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.API_URL;
 import 'ionicons/dist/ionicons/ionicons.esm.js';
 import axios from 'axios'
     export default {
@@ -79,7 +79,7 @@ import axios from 'axios'
                     if(response.status == 200){
                         this.listNotes = response.data.data.reverse()
                         this.conditionUpdate = response.data.data.map(() => false)
-                    }
+                    }app
                 }catch(e){
                     console.log(e)
                 }

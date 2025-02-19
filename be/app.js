@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
-const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -14,6 +13,8 @@ app.use(cors({ origin: '*' }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+
+
 
 // Route untuk halaman utama
 app.get('/', async (req, res) => {
