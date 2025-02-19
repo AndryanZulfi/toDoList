@@ -2,13 +2,13 @@
 FROM node:16-alpine
 
 # Set direktori kerja
-WORKDIR /app
+
 
 # Salin semua file ke direktori kerja
 COPY . .
 
 # Pindah ke folder be dan install dependencies
-WORKDIR /app/be
+WORKDIR /be
 RUN npm install
 
 # Expose port yang digunakan oleh aplikasi
