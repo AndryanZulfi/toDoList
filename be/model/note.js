@@ -16,7 +16,7 @@ const checked = async(id, value) =>{
         {_id:  new ObjectId(id)},
         {isChecked: !value}
     )
-}
+}                                                              
 
 
 // read data
